@@ -1,5 +1,7 @@
+
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
+
 
 export const getPosts = async (req, res) => {
   try {
@@ -56,11 +58,18 @@ export const likePost = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with that id`);
 
   const post = await PostMessage.findById(id);
-  const updatedPost = await PostMessage.findByIdAndUpdate(
-    id,
-    { likeCount: post.likeCount + 1 },
-    { new: true },
-  );
+
+  const index = post.likes.findIndex((id) => id === String(req.userId));
+
+  if (index === -1) {
+    // like a post
+    post.likes.push(req.userId);
+  } else {
+    //remove a like
+    post.likes = post.likes.filter((id) => id !== String(req.userId));
+  }
+
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
 
   res.json(updatedPost);
 };
