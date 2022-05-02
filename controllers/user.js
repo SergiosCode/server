@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import User from "../models/user.js";
 
-const secret = 'test';
+const secret = "test";
 
 export const signin = async (req, res) => {
   const { email, password } = req.body;
@@ -36,7 +36,7 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, confirmPassword, firstName, lastName } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -45,13 +45,13 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "User already exists." });
     }
 
-    if (password !== confirmpassword) {
+    if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match." });
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const newUser = await User.create({
+    const result = await User.create({
       email,
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
@@ -61,5 +61,7 @@ export const signup = async (req, res) => {
     res.status(200).json({ result, token });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong." });
+
+    console.log(`This is what is wrong!!!!!!! ${err}`);
   }
 };
