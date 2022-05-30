@@ -11,7 +11,7 @@ export const getPosts = async (req, res) => {
 
     const posts = await PostMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
 
-    console.log(postMessages);
+    // console.log(PostMessage);
 
     res.status(200).json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT) });
   } catch (error) {
