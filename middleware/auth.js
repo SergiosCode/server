@@ -1,6 +1,4 @@
-const jwt = require('jsonwebtoken');
-const { decode } = require('jsonwebtoken');
-// import  { decode } from "jsonwebtoken";
+import  { decode } from "jsonwebtoken";
 
 const secret = "test";
 
