@@ -17,9 +17,9 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
-app.get("/", (res, req) => {
-  res.send("APP IS RUNNING");
-});
+// app.get("/", (res, req) => {
+//   res.send("APP IS RUNNING");
+// });
 
 const CONNECTION_URL =
   "mongodb+srv://sergioscode:123456Sv@cluster0.sgkpy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
