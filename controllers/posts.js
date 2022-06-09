@@ -81,7 +81,7 @@ export const updatePost = async (req, res) => {
   const { id } = req.params;
   const { title, message, creator, selectedFile, tags } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: "Invalid ID" });
 
   const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
 
@@ -93,7 +93,7 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: "Invalid ID" });
 
   await PostMessage.findByIdAndRemove(id);
 
@@ -107,7 +107,7 @@ export const likePost = async (req, res) => {
     return res.json({ message: "Unauthenticated" });
   }
 
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({ message: "Invalid ID" });
 
   const post = await PostMessage.findById(id);
 
