@@ -21,7 +21,7 @@ app.get("/", (res, req) => {
   res.send("APP IS RUNNING");
 });
 
-const CONNECTION_URL =
+const CONNECTION_URL=
   "mongodb+srv://sergioscode:Ghost951$@cluster0.sgkpy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
