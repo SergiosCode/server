@@ -1,4 +1,4 @@
-import  { decode } from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 
 const secret = "test";
 
