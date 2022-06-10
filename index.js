@@ -15,8 +15,8 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
-app.get("/", function (res, req) {
-  res.send("APP IS RUNNING");
+app.get("/", function(res) {
+  res.send("Hello World");
 });
 
 const CONNECTION_URL =
