@@ -16,7 +16,7 @@ app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
 app.get("/", (res, req) => {
-  res.send("APP IS RUNNING");
+  res.json("APP IS RUNNING");
 });
 
 const CONNECTION_URL =
