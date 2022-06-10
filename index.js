@@ -19,8 +19,8 @@ app.get("/", (res, req) => {
   res.send("APP IS RUNNING");
 });
 
-const CONNECTION_URL=
-  "mongodb+srv://sergioscode:Ghost951$@cluster0.sgkpy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const CONNECTION_URL =
+  "mongodb+srv://sergioscode:Ghost951$@cluster0.sgkpy.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
 mongoose
@@ -29,4 +29,3 @@ mongoose
   .catch((error) => console.log(error.message));
 
 // mongoose.set("useFindAndModify", false);
-
