@@ -20,7 +20,7 @@ app.get("/", (res, req) => {
 });
 
 const CONNECTION_URL =
-  "mongodb+srv://sergioscode:Ghost951$@cluster0.sgkpy.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://sergioscode:123456Sv$@cluster0.sgkpy.mongodb.net/?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
 
 mongoose
