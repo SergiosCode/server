@@ -15,9 +15,9 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
-// app.get("/", function (req, res) {
-//   res.send("Hello World");
-// });
+app.get("/", function (req, res) {
+  res.send("Hello World");
+});
 
 const CONNECTION_URL =
   "mongodb+srv://sergioscode:123456Sv@cluster0.sgkpy.mongodb.net/?retryWrites=true&w=majority";
