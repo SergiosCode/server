@@ -15,7 +15,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 
-app.get("/", function(res, req) {
+app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
