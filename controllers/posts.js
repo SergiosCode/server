@@ -7,6 +7,7 @@ const router = express.Router();
 
 export const getPosts = async (req, res) => {
   const { page } = req.query;
+  console.log('posts working!')
 
   try {
     const LIMIT = 8;
