@@ -19,8 +19,7 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
-const CONNECTION_URL =
-  "mongodb+srv://sergioscode:123456Sv@cluster0.sgkpy.mongodb.net/?retryWrites=true&w=majority";
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
